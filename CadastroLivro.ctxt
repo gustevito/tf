@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=CadastroLivro
+comment1.params=
+comment1.target=CadastroLivro()
+comment2.params=livro
+comment2.target=boolean\ adicionaLivro(Livro)
+comment3.params=nome
+comment3.target=Livro\ buscaLivroPeloNome(java.lang.String)
+comment4.params=
+comment4.target=void\ mostraLivros()
+comment5.params=
+comment5.target=int\ totalExemplares()
+numComments=6
