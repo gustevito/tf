@@ -1,9 +1,10 @@
 import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
-        CadastroLeitor cadastroLeitor = new CadastroLeitor();
-        CadastroLivro cadastroLivro = new CadastroLivro();
         Scanner teclado = new Scanner(System.in);
+        CadastroLeitor leitores = new CadastroLeitor();
+        CadastroLivro livros = new CadastroLivro();
+        
         
         System.out.println("    _____");
         System.out.println("   /    /|_ ___________________________________________");
@@ -17,7 +18,6 @@ public class Application {
         System.out.println("| ||                                            | ||");
         System.out.println("| |                                             | |");
 
-
         
         /*System.out.println("Boas vindas à Biblioteca Municipal!");
         System.out.println();
@@ -29,6 +29,9 @@ public class Application {
         System.out.println();
         System.out.println("Vamos dar inicio ao seu atendimento...");
         System.out.println();*/
+        
+        
+        
         
         while (true) {
             System.out.println("\n---------------------");
@@ -44,7 +47,7 @@ public class Application {
             System.out.println("7 – Pesquisar livro por nome");
             System.out.println("8 – Retirar livro");
             System.out.println("9 – Devolver livro");
-            System.out.println("10 – Quantidade total de exemplares disponíveis no sistema de empréstimo");
+            System.out.println("10 – Exemplares disponiveis");
             System.out.println();
             System.out.println("20 – Sair do programa");
 
@@ -52,7 +55,7 @@ public class Application {
             teclado.nextLine(); // Consumir a nova linha
 
             switch (opcao) {
-                case 1:
+                case 1: // incluir leitor
                     System.out.print('\u000C');
                     System.out.println("Informe a matrícula do leitor:");
                     int matricula = teclado.nextInt();
@@ -62,28 +65,35 @@ public class Application {
                     System.out.println("Informe o e-mail do leitor:");
                     String emailLeitor = teclado.nextLine();
                     Leitor leitor = new Leitor(matricula, nomeLeitor, emailLeitor);
-                    cadastroLeitor.adicionaLeitor(leitor);
+                    leitores.adicionaLeitor(leitor);
                     break;
-                case 2:
+                case 2: // remover o leitor
+                    System.out.print('\u000C');
+                    System.out.println ("Informe o nome do leitor que precisa ser apagado: ");
+                    String nome = teclado.nextLine();
+                    if (leitores.retiraLeitor(nome)) {
+                        System.out.println ("Cadastro de " + nome + " removido com sucesso.");
+                    } else {
+                        System.out.println ("### Erro ao cancelar o cadastro do leitor! ###");
+                    }
+                break;
+                case 3: // mostrar leitores
                     System.out.print('\u000C'); 
-                    System.out.println(" • Lista de Leitores: • ");
-                    cadastroLeitor.mostraLeitores();
+                    System.out.println(" • Leitores cadastrados na Biblioteca: • ");
+                    leitores.mostraLeitores();
                     break;
-                /* case 3: (REMOVER O LEITOR)
+                case 4: // pesquisar leitor por nome
                     System.out.print('\u000C'); 
-                */ 
-                case 4:
-                    System.out.print('\u000C'); 
-                    System.out.println("Informe o nome do leitor:");
+                    System.out.println("Informe o nome do leitor que deseja pesquisar:");
                     String nomeBuscaLeitor = teclado.nextLine();
-                    Leitor leitorEncontrado = cadastroLeitor.buscaLeitorPeloNome(nomeBuscaLeitor);
+                    Leitor leitorEncontrado = leitores.buscaLeitorPeloNome(nomeBuscaLeitor);
                     if (leitorEncontrado != null) {
                         System.out.println("Leitor encontrado: " + leitorEncontrado.getNome());
                     } else {
                         System.out.println("Leitor não encontrado!");
                     }
                     break;
-                case 5:
+                case 5: // incluir livro
                     System.out.print('\u000C');
                     System.out.println("Informe o código do livro:");
                     int codigo = teclado.nextInt();
@@ -93,33 +103,33 @@ public class Application {
                     System.out.println("Informe a quantidade de exemplares:");
                     int exemplares = teclado.nextInt();
                     Livro livro = new Livro(codigo, nomeLivro, exemplares);
-                    cadastroLivro.adicionaLivro(livro);
+                    livros.adicionaLivro(livro);
                     break;
-                case 6:
+                case 6: // mostrar livros
                     System.out.print('\u000C');
                     System.out.println(" • Estante de livros • ");
-                    cadastroLivro.mostraLivros();
+                    livros.mostraLivros();
                     break;
-                case 7:
+                case 7: // pesquisar nome do livro
                     System.out.print('\u000C');
                     System.out.println("Informe o nome do livro:");
                     String nomeBuscaLivro = teclado.nextLine();
-                    Livro livroEncontrado = cadastroLivro.buscaLivroPeloNome(nomeBuscaLivro);
+                    Livro livroEncontrado = livros.buscaLivroPeloNome(nomeBuscaLivro);
                     if (livroEncontrado != null) {
                         System.out.println("Livro encontrado: " + livroEncontrado.getNomeLivro());
                     } else {
                         System.out.println("Livro não encontrado.");
                     }
                     break;
-                case 8:
+                case 8: // retirar livro
                     System.out.print('\u000C');
                     System.out.println("Informe o nome do leitor:");
                     String nomeLeitorRetira = teclado.nextLine();
-                    Leitor leitorParaRetirar = cadastroLeitor.buscaLeitorPeloNome(nomeLeitorRetira);
+                    Leitor leitorParaRetirar = leitores.buscaLeitorPeloNome(nomeLeitorRetira);
                     if (leitorParaRetirar != null && leitorParaRetirar.getLivroRetirado() == null) {
                         System.out.println("Informe o nome do livro:");
                         String nomeLivroRetira = teclado.nextLine();
-                        Livro livroParaRetirar = cadastroLivro.buscaLivroPeloNome(nomeLivroRetira);
+                        Livro livroParaRetirar = livros.buscaLivroPeloNome(nomeLivroRetira);
                         if (livroParaRetirar != null && livroParaRetirar.getExemplares() > 0) {
                             leitorParaRetirar.setLivroRetirado(livroParaRetirar);
                             livroParaRetirar.retirarExemplar();
@@ -132,11 +142,11 @@ public class Application {
                         System.out.println("Leitor não encontrado ou já possui um livro retirado.");
                     }
                     break;
-                case 9:
+                case 9: // devolver livro
                     System.out.print('\u000C');
                     System.out.println("Informe o nome do leitor:");
                     String nomeLeitorDevolve = teclado.nextLine();
-                    Leitor leitorParaDevolver = cadastroLeitor.buscaLeitorPeloNome(nomeLeitorDevolve);
+                    Leitor leitorParaDevolver = leitores.buscaLeitorPeloNome(nomeLeitorDevolve);
                     if (leitorParaDevolver != null && leitorParaDevolver.getLivroRetirado() != null) {
                         Livro livroParaDevolver = leitorParaDevolver.getLivroRetirado();
                         livroParaDevolver.devolverExemplar();
@@ -146,9 +156,9 @@ public class Application {
                         System.out.println("Leitor não encontrado ou não possui livro retirado.");
                     }
                     break;
-                case 10:
+                case 10: // total de exemplares
                     System.out.print('\u000C');
-                    System.out.println("Exemplares disponiveis: " + cadastroLivro.totalExemplares());
+                    System.out.println("Exemplares disponiveis: " + livros.totalExemplares());
                     break;
                 case 20:
                     System.out.print('\u000C');

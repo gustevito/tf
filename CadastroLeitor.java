@@ -22,6 +22,15 @@ public class CadastroLeitor {
         }
     }
     
+    public boolean verificaMatricula (int matricula) {
+        for (int i = 0; i < this.index; i++) {
+            if (leitor[i].getMatricula() == matricula) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public Leitor buscaLeitorPeloNome(String nome) {
         for (int i = 0; i < this.index; i++) {
             if (this.leitor[i].getNome().equalsIgnoreCase(nome)) {
@@ -54,16 +63,6 @@ public class CadastroLeitor {
         return false;
     }
     
-
-
-    public boolean verificaMatricula (int matricula) {
-        for (int i = 0; i < this.index; i++) {
-            if (leitor[i].getMatricula() == matricula) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     /*public void mostraLeitores() {
         int index = 0; // index do leitor
