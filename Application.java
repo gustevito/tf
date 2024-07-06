@@ -35,17 +35,18 @@ public class Application {
             System.out.println("Digite o nº da opção que deseja executar:");
             System.out.println("\n • Leitores • ");
             System.out.println("1 – Incluir leitor");
-            System.out.println("2 – Mostrar leitores");
-            System.out.println("3 – Pesquisar leitor por nome");
+            System.out.println("2 – Remover leitor");
+            System.out.println("3 – Mostrar leitores");
+            System.out.println("4 – Pesquisar leitor por nome");
             System.out.println("\n • Livros • ");
-            System.out.println("4 – Incluir livro");
-            System.out.println("5 – Mostrar livros");
-            System.out.println("6 – Pesquisar livro por nome");
-            System.out.println("7 – Retirar livro");
-            System.out.println("8 – Devolver livro");
-            System.out.println("9 – Quantidade total de exemplares disponíveis no sistema de empréstimo");
+            System.out.println("5 – Incluir livro");
+            System.out.println("6 – Mostrar livros");
+            System.out.println("7 – Pesquisar livro por nome");
+            System.out.println("8 – Retirar livro");
+            System.out.println("9 – Devolver livro");
+            System.out.println("10 – Quantidade total de exemplares disponíveis no sistema de empréstimo");
             System.out.println();
-            System.out.println("10 – Sair do programa");
+            System.out.println("20 – Sair do programa");
 
             int opcao = teclado.nextInt();
             teclado.nextLine(); // Consumir a nova linha
@@ -68,7 +69,10 @@ public class Application {
                     System.out.println(" • Lista de Leitores: • ");
                     cadastroLeitor.mostraLeitores();
                     break;
-                case 3:
+                /* case 3: (REMOVER O LEITOR)
+                    System.out.print('\u000C'); 
+                */ 
+                case 4:
                     System.out.print('\u000C'); 
                     System.out.println("Informe o nome do leitor:");
                     String nomeBuscaLeitor = teclado.nextLine();
@@ -79,7 +83,7 @@ public class Application {
                         System.out.println("Leitor não encontrado!");
                     }
                     break;
-                case 4:
+                case 5:
                     System.out.print('\u000C');
                     System.out.println("Informe o código do livro:");
                     int codigo = teclado.nextInt();
@@ -91,12 +95,12 @@ public class Application {
                     Livro livro = new Livro(codigo, nomeLivro, exemplares);
                     cadastroLivro.adicionaLivro(livro);
                     break;
-                case 5:
+                case 6:
                     System.out.print('\u000C');
                     System.out.println(" • Estante de livros • ");
                     cadastroLivro.mostraLivros();
                     break;
-                case 6:
+                case 7:
                     System.out.print('\u000C');
                     System.out.println("Informe o nome do livro:");
                     String nomeBuscaLivro = teclado.nextLine();
@@ -107,7 +111,7 @@ public class Application {
                         System.out.println("Livro não encontrado.");
                     }
                     break;
-                case 7:
+                case 8:
                     System.out.print('\u000C');
                     System.out.println("Informe o nome do leitor:");
                     String nomeLeitorRetira = teclado.nextLine();
@@ -128,7 +132,7 @@ public class Application {
                         System.out.println("Leitor não encontrado ou já possui um livro retirado.");
                     }
                     break;
-                case 8:
+                case 9:
                     System.out.print('\u000C');
                     System.out.println("Informe o nome do leitor:");
                     String nomeLeitorDevolve = teclado.nextLine();
@@ -142,11 +146,11 @@ public class Application {
                         System.out.println("Leitor não encontrado ou não possui livro retirado.");
                     }
                     break;
-                case 9:
+                case 10:
                     System.out.print('\u000C');
                     System.out.println("Exemplares disponiveis: " + cadastroLivro.totalExemplares());
                     break;
-                case 10:
+                case 20:
                     System.out.print('\u000C');
                     System.out.println("   ___  _          _                 _       _ ");
                     System.out.println("  / _ \\| |__  _ __(_) __ _  __ _  __| | ___ | |");
