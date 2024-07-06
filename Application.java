@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Application {
     public static void main(String[] args) {
         CadastroLeitor cadastroLeitor = new CadastroLeitor();
@@ -103,7 +102,7 @@ public class Application {
                     String nomeBuscaLivro = teclado.nextLine();
                     Livro livroEncontrado = cadastroLivro.buscaLivroPeloNome(nomeBuscaLivro);
                     if (livroEncontrado != null) {
-                        System.out.println("Livro encontrado: " + livroEncontrado.getNome());
+                        System.out.println("Livro encontrado: " + livroEncontrado.getNomeLivro());
                     } else {
                         System.out.println("Livro não encontrado.");
                     }

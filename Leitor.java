@@ -54,10 +54,12 @@ public class Leitor {
     
     
     // toString
-    /*public String toString(){
-        return "Leitor 1: " + "\nNome: " + leitor.getNome() + 
-            "\nMatrícula: " + leitor.getMatricula() +
-            "\nEmpréstimos: " + leitor.getQuantidadeEmprestimos() + 
-            "\nLivro Retirado: " + (leitor.getLivroRetirado() != null ? leitor.getLivroRetirado().getNome() : "Nenhum");
-    }*/
+    public String toString(){
+        return "\nLEITOR " + 
+        "\nNome: " + nome +
+        "\nMatrícula: " + matricula +
+        "\nE-mail: " + email +
+        "\nEmpréstimos: " + quantidadeEmprestimos +
+        "\nLivro Retirado: " + (livroRetirado != null ? livroRetirado.getNomeLivro() : "Nenhum");
+    }
 }

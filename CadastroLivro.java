@@ -12,7 +12,7 @@ public class CadastroLivro {
 
     public Livro buscaLivroPeloNome(String nome) {
         for (Livro livro : livros) {
-            if (livro.getNome().equals(nome)) {
+            if (livro.getNomeLivro().equals(nome)) {
                 return livro;
             }
         }
@@ -21,7 +21,7 @@ public class CadastroLivro {
 
     public void mostraLivros() {
         for (Livro livro : livros) {
-            System.out.println("Nome: " + livro.getNome() + 
+            System.out.println("Nome: " + livro.getNomeLivro() + 
             "\nCódigo: " + livro.getCodigo() +
             "\nExemplares: " + livro.getExemplares());
         }
