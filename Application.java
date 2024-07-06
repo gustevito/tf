@@ -28,6 +28,8 @@ public class Application {
             switch (opcao) {
                 case 1: // incluir leitor
                     System.out.print('\u000C');
+                    System.out.println("OPÇÃO ESCOLHIDA – Inserir leitor");
+                    
                     System.out.println("Informe o nome do novo leitor: ");
                     String nome = teclado.nextLine();
                     System.out.println("Informe o email do novo leitor: ");
@@ -49,6 +51,8 @@ public class Application {
                     break;
                 case 2: // remover o leitor
                     System.out.print('\u000C');
+                    System.out.println("OPÇÃO ESCOLHIDA – Excluir leitor");
+                    
                     System.out.println("Informe o nome do leitor que precisa ser apagado: ");
                     nome = teclado.nextLine();
                     if (leitores.retiraLeitor(nome)) {
@@ -60,13 +64,17 @@ public class Application {
                     esperarEnter(teclado);
                     break;
                 case 3: // mostrar leitores
-                    System.out.print('\u000C'); 
+                System.out.print('\u000C'); 
+                System.out.println("OPÇÃO ESCOLHIDA – Mostrar leitores");
+                
                     System.out.println(" • Leitores cadastrados na Biblioteca: • ");
                     leitores.mostraLeitores();
                     esperarEnter(teclado);
                     break;
                 case 4: // pesquisar leitor por nome
-                    System.out.print('\u000C'); 
+                System.out.print('\u000C');
+                System.out.println("OPÇÃO ESCOLHIDA – Pesquisar leitor por nome");
+                
                     System.out.println("Informe o nome do leitor que deseja pesquisar: ");
                     nome = teclado.nextLine();
                     Leitor leitorPesquisado = leitores.buscaLeitorPeloNome(nome);
@@ -78,8 +86,10 @@ public class Application {
                     esperarEnter(teclado);
                     break;
                 case 5: // incluir livro
-                    System.out.print('\u000C');
-                    System.out.println("Informe o nome do livro que deseja inserir: ");
+                System.out.print('\u000C');
+                System.out.println("OPÇÃO ESCOLHIDA – Adicionar livro");
+                    
+                    System.out.println("Informe o nome do livro que deseja adicionar: ");
                     String nomeLivro = teclado.nextLine();
                     System.out.println("Informe a quantidade de exemplares que esse livro possui: ");
                     int exemplares = teclado.nextInt();
@@ -97,14 +107,32 @@ public class Application {
                     }
                     esperarEnter(teclado);
                     break;
-                case 6: // mostrar livros
-                    System.out.print('\u000C');
+                case 6: // excluir livros
+                System.out.print('\u000C');
+                System.out.println("OPÇÃO ESCOLHIDA – Excluir livro");
+                    
+                    System.out.println ("Informe o nome do livro que precisa ser apagado:");
+                    nomeLivro = teclado.nextLine();
+                    if (livros.apagaLivro(nomeLivro)) {
+                        System.out.println ("O livro cadastrado foi removido com sucesso!");
+                    } else {
+                        System.out.println ("ERRO" + 
+                        "\nNão foi possível remover o cadastro do livro '" + nomeLivro + "'." + 
+                        "\nVerifique se você digitou corretamente e tente novamente!");
+                    }
+                    break;
+                case 7: // mostrar livros
+                System.out.print('\u000C');
+                System.out.println("OPÇÃO ESCOLHIDA – Mostrar livros");
+                    
                     System.out.println(" • Estante de livros • ");
                     livros.mostraLivros();
                     esperarEnter(teclado);
                     break;
-                case 7: // pesquisar nome do livro
-                    System.out.print('\u000C');
+                case 8: // pesquisar nome do livro
+                System.out.print('\u000C');
+                System.out.println("OPÇÃO ESCOLHIDA – Pesquisar livro por nome");
+                    
                     System.out.println("Informe o nome do livro que deseja pesquisar: ");
                     nomeLivro = teclado.nextLine();
                     Livro livroPesquisado = livros.buscaLivroPeloNome(nomeLivro);
@@ -115,8 +143,10 @@ public class Application {
                     }
                     esperarEnter(teclado);
                     break;
-                case 8: // retirar livro
-                    System.out.print('\u000C');
+                case 9: // retirar livro
+                System.out.print('\u000C');
+                System.out.println("OPÇÃO ESCOLHIDA – Retirar livro");
+                
                     System.out.println("Informe o nome do leitor:");
                     String nomeLeitorRetira = teclado.nextLine();
                     Leitor leitorParaRetirar = leitores.buscaLeitorPeloNome(nomeLeitorRetira);
@@ -130,15 +160,18 @@ public class Application {
                             leitorParaRetirar.incrementarEmprestimos();
                             System.out.println("Livro retirado com sucesso.");
                         } else {
-                            System.out.println("Livro não disponível.");
+                            System.out.println("ERRO" + "\nLivro não disponível ou não existe.");
                         }
                     } else {
-                        System.out.println("Leitor não encontrado ou já possui um livro retirado.");
+                        System.out.println("ERRO" + 
+                        "\nLeitor não encontrado ou já possui um livro retirado.");
                     }
                     esperarEnter(teclado);
                     break;
-                case 9: // devolver livro
-                    System.out.print('\u000C');
+                case 10: // devolver livro
+                System.out.print('\u000C');
+                System.out.println("OPÇÃO ESCOLHIDA – Devolver livro");
+                
                     System.out.println("Informe o nome do leitor:");
                     String nomeLeitorDevolve = teclado.nextLine();
                     Leitor leitorParaDevolver = leitores.buscaLeitorPeloNome(nomeLeitorDevolve);
@@ -148,13 +181,15 @@ public class Application {
                         leitorParaDevolver.setLivroRetirado(null);
                         System.out.println("Livro devolvido com sucesso.");
                     } else {
-                        System.out.println("Leitor não encontrado ou não possui livro retirado.");
+                        System.out.println("ERRO" + "\nLeitor não encontrado ou não possui livro retirado.");
                     }
                     esperarEnter(teclado);
                     break;
-                case 10: // total de exemplares
-                    System.out.print('\u000C');
-                    System.out.println("Exemplares disponíveis: " + livros.totalExemplares());
+                case 11: // total de exemplares
+                System.out.print('\u000C');
+                System.out.println("OPÇÃO ESCOLHIDA – Exemplares disponíveis");
+                
+                    System.out.println("Total de exemplares disponíveis: " + livros.totalExemplares());
                     esperarEnter(teclado);
                     break;
                 case 20:
@@ -181,23 +216,26 @@ public class Application {
         System.out.println("\n-----------------------------------------");
         System.out.println("Digite o nº da opção que deseja executar:");
         System.out.println("\n-• LEITORES •-");
-        System.out.println("1 – Incluir leitor");
-        System.out.println("2 – Remover leitor");
+        System.out.println("\n1 – Adicionar leitor");
+        System.out.println("2 – Excluir leitor");
         System.out.println("3 – Mostrar leitores");
         System.out.println("4 – Pesquisar leitor por nome");
-        System.out.println("\n-• LIVROS •-");
-        System.out.println("5 – Incluir livro");
-        System.out.println("6 – Mostrar livros");
-        System.out.println("7 – Pesquisar livro por nome");
-        System.out.println("8 – Retirar livro");
-        System.out.println("9 – Devolver livro");
-        System.out.println("10 – Exemplares disponíveis");
-        System.out.println();
-        System.out.println("20 – Sair do programa");
+        System.out.println("\n-----------------------------------------");
+        System.out.println("-• LIVROS •-");
+        System.out.println("\n5 – Adicionar livro");
+        System.out.println("6 – Excluir livro");
+        System.out.println("7 – Mostrar livros");
+        System.out.println("8 – Pesquisar livro por nome");
+        System.out.println("9 – Retirar livro");
+        System.out.println("10 – Devolver livro");
+        System.out.println("11 – Exemplares disponíveis");
+        System.out.println("-----------------------------------------");
+        System.out.println("\n20 – Sair do programa");
     }
 
     private static void esperarEnter(Scanner teclado) {
         System.out.println("\nPressione Enter para acessar o menu...");
         teclado.nextLine();
+        System.out.print('\u000C');
     }
 }
