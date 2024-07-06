@@ -44,6 +44,13 @@ public class Livro {
     }
     
     
+    
+    public String toString(){
+        return "\nLIVRO" +
+        "\nNome: " + nomeLivro +
+        "\nCodigo: " + codigo +
+        "\nExemplares: " + exemplares;
+    } 
     // toString
     /* 
      * public String toString(){

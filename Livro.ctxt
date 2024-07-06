@@ -2,6 +2,8 @@
 comment0.target=Livro
 comment1.params=codigo\ nomeLivro\ exemplares
 comment1.target=Livro(int,\ java.lang.String,\ int)
+comment10.params=
+comment10.target=java.lang.String\ toString()
 comment2.params=
 comment2.target=int\ getCodigo()
 comment3.params=
@@ -18,4 +20,4 @@ comment8.params=
 comment8.target=void\ retirarExemplar()
 comment9.params=
 comment9.target=void\ devolverExemplar()
-numComments=10
+numComments=11

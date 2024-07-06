@@ -2,4 +2,8 @@
 comment0.target=Application
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment2.params=
+comment2.target=void\ exibirMenu()
+comment3.params=teclado
+comment3.target=void\ esperarEnter(java.util.Scanner)
+numComments=4
