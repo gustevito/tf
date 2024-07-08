@@ -308,9 +308,8 @@ public class Application {
                 
                 System.out.println("\nEnter the name of the reader to search: ");
                 nome = teclado.nextLine();
-                Leitor leitorPesquisado = leitores.buscaLeitorPeloNome(nome);
-                if (leitorPesquisado != null) {
-                    System.out.println("Reader found:\n" + leitorPesquisado);
+                if (leitores.buscaLeitorPeloNome(nome) != null) {
+                    System.out.println("Reader found:\n" + leitores.buscaLeitorPeloNome(nome).toStringENG());
                 } else {
                     System.out.println("Reader not found.");
                 }
@@ -330,7 +329,7 @@ public class Application {
                 Livro novoLivro = new Livro(codigo, nomeLivro, exemplares);
                 if (livros.adicionaLivro(novoLivro)) {
                     System.out.println("Book successfully added!");
-                    System.out.println(novoLivro);
+                    System.out.println(novoLivro.toStringENG());
                 } else {
                     System.out.println("ERROR" + 
                     "\nIt was not possible to register the book '" + nomeLivro + "'." +
@@ -358,7 +357,7 @@ public class Application {
                 System.out.println("SELECTED OPTION – Show books");
                 
                 System.out.println("\n • Book shelf • ");
-                livros.mostraLivros();
+                livros.showBooks();
                 waitForEnter(teclado);
                 break;
             case 8: // search book by name
@@ -371,11 +370,11 @@ public class Application {
                 if (livroPesquisado == null) {
                     System.out.println("The book \"" + nomeLivro + "\" was not found in the system.");
                 } else {
-                    System.out.println("The book was found\n" + livroPesquisado);
+                    System.out.println("The book was found\n" + livros.buscaLivroPeloNome(nomeLivro).toStringENG());
                 }
                 waitForEnter(teclado);
                 break;
-            case 9: // loan book
+            case 9: // borrow book
                 System.out.print('\u000C');
                 System.out.println("SELECTED OPTION – Borrow book");
                 
@@ -388,7 +387,7 @@ public class Application {
                 } else {
                     leitores.buscaLeitorPeloNome(nome).setLivroRetirado(livros.buscaLivroPeloNome(nomeLivro));
                     if (livros.buscaLivroPeloNome(nomeLivro).retirada()) {
-                        System.out.println("The book was successfully loaned!");
+                        System.out.println("The book was successfully borrowed!");
                     } else {
                         System.out.println("The book doesn't have copies available.");
                     }

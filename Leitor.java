@@ -47,11 +47,6 @@ public class Leitor {
         this.livroRetirado = livro;
     }
     
-    // metodos
-    public void incrementarEmprestimos() {
-        quantidadeEmprestimos++;
-    }
-    
     
     // toString (portugues e ingles)
     public String toString(){
@@ -68,6 +63,6 @@ public class Leitor {
         "\nRegistration: " + matricula +
         "\nE-mail: " + email +
         "\nCopies rented: " + quantidadeEmprestimos +
-        "\nBook rented: " + (livroRetirado != null ? livroRetirado.getNomeLivro() : "Nenhum");
+        "\nBook rented: " + (livroRetirado != null ? livroRetirado.getNomeLivro() : "None");
     }
 }
