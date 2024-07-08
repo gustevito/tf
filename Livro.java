@@ -19,8 +19,7 @@ public class Livro {
     public String getNomeLivro() {
         return nomeLivro;
     }
-
-
+    
     // setters
     public void setCodigo(int codigo){
         this.codigo = codigo;
@@ -31,33 +30,30 @@ public class Livro {
     public void setNomeLivro(String nomeLivro){
         this.nomeLivro = nomeLivro;
     }
-
     
     // metodos
-    public void retirarExemplar() {
-        if (exemplares > 0) {
-            exemplares--;
+    public boolean retirada () {
+        if (this.exemplares > 0) {
+            this.exemplares--;
+            return true;
         }
+        return false;
     }
-    public void devolverExemplar() {
-        exemplares++;
+    public void devolucao () {
+        this.exemplares++;
     }
     
-    
-    
+    // metodos toString (portugues e ingles)
     public String toString(){
         return "\nLIVRO" +
         "\nNome: " + nomeLivro +
         "\nCodigo: " + codigo +
         "\nExemplares: " + exemplares;
-    } 
-    // toString
-    /* 
-     * public String toString(){
-        return "\nLivro" +
-        "\nNome: " + nomeLivro +
-        "\nCodigo: " + codigo +
-        "\nExemplares: " + exemplares;
-    }}
-*/
+    }
+    public String toStringENG(){
+        return "\nBOOK" +
+        "\nName: " + nomeLivro +
+        "\nCode: " + codigo +
+        "\nCopies: " + exemplares;
+    }
 }

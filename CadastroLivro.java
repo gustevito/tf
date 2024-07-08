@@ -2,12 +2,13 @@ public class CadastroLivro {
     private int index;
     private Livro livro[];
 
-    // Método Constructor;
+    // Método construtor;
     public CadastroLivro() {
         this.index = 0;
         this.livro = new Livro[10];
     }
-    // Método para inserir um livro no vetor;
+    
+    // Métodos para inserir e remover um livro no vetor;
     public boolean adicionaLivro (Livro livro) {
         if (this.index < this.livro.length) {
             this.livro[this.index] = livro;
@@ -38,6 +39,7 @@ public class CadastroLivro {
         }
         return false;
     }
+    
     // Método para buscar um livro pelo nome no vetor;
     public Livro buscaLivroPeloNome (String nome) {
         for (int i = 0; i < this.index; i++) {
@@ -47,6 +49,7 @@ public class CadastroLivro {
         }
         return null;
     }
+    
     // Método para o cálculo do total de exemplares disponíveis;
     public int totalExemplares () {
         int totalExemplares = 0;
@@ -55,48 +58,16 @@ public class CadastroLivro {
         }
         return totalExemplares;
     }
+    
     // Método para imprimir os dados do vetor/objeto livro;
     public void mostraLivros () {
         for (int i = 0; i < this.index; i++) {
             System.out.println (this.livro[i]);
         }
     }
+    public void showBooks () {
+        for (int i = 0; i < this.index; i++) {
+            System.out.println (this.livro[i].toStringENG());
+        }
+    }
 }
-
-/*import java.util.ArrayList;
-public class CadastroLivro {
-    private ArrayList<Livro> livros;
-
-    public CadastroLivro() {
-        livros = new ArrayList<>();
-    }
-
-    public boolean adicionaLivro(Livro livro) {
-        return livros.add(livro);
-    }
-
-    public Livro buscaLivroPeloNome(String nome) {
-        for (Livro livro : livros) {
-            if (livro.getNomeLivro().equals(nome)) {
-                return livro;
-            }
-        }
-        return null;
-    }
-
-    public void mostraLivros() {
-        for (Livro livro : livros) {
-            System.out.println("Nome: " + livro.getNomeLivro() + 
-            "\nCódigo: " + livro.getCodigo() +
-            "\nExemplares: " + livro.getExemplares());
-        }
-    }
-
-    public int totalExemplares() {
-        int total = 0;
-        for (Livro livro : livros) {
-            total += livro.getExemplares();
-        }
-        return total;
-    }
-}*/

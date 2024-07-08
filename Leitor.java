@@ -53,7 +53,7 @@ public class Leitor {
     }
     
     
-    // toString
+    // toString (portugues e ingles)
     public String toString(){
         return "\nLEITOR " + 
         "\nNome: " + nome +
@@ -61,5 +61,13 @@ public class Leitor {
         "\nE-mail: " + email +
         "\nEmpréstimos: " + quantidadeEmprestimos +
         "\nLivro Retirado: " + (livroRetirado != null ? livroRetirado.getNomeLivro() : "Nenhum");
+    }
+    public String toStringENG(){
+        return "\nREADER " + 
+        "\nName: " + nome +
+        "\nRegistration: " + matricula +
+        "\nE-mail: " + email +
+        "\nCopies rented: " + quantidadeEmprestimos +
+        "\nBook rented: " + (livroRetirado != null ? livroRetirado.getNomeLivro() : "Nenhum");
     }
 }

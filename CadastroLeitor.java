@@ -22,6 +22,12 @@ public class CadastroLeitor {
         }
     }
     
+    public void showReaders () {
+        for (int i = 0; i < this.index; i++) {
+            System.out.println (this.leitor[i].toStringENG());
+        }
+    }
+    
     public boolean verificaMatricula (int matricula) {
         for (int i = 0; i < this.index; i++) {
             if (leitor[i].getMatricula() == matricula) {
