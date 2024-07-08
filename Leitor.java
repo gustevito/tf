@@ -54,7 +54,6 @@ public class Leitor {
         "\nNome: " + nome +
         "\nMatrícula: " + matricula +
         "\nE-mail: " + email +
-        "\nEmpréstimos: " + quantidadeEmprestimos +
         "\nLivro Retirado: " + (livroRetirado != null ? livroRetirado.getNomeLivro() : "Nenhum");
     }
     public String toStringENG(){
@@ -62,7 +61,6 @@ public class Leitor {
         "\nName: " + nome +
         "\nRegistration: " + matricula +
         "\nE-mail: " + email +
-        "\nCopies rented: " + quantidadeEmprestimos +
         "\nBook rented: " + (livroRetirado != null ? livroRetirado.getNomeLivro() : "None");
     }
 }

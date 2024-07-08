@@ -17,8 +17,8 @@ public class Application {
         
         while (lingua >= 3 || lingua <= 0) {
             System.out.println ("### ERROR ###");
-            System.out.println ("Digite um nº válido!");
-            System.out.println ("(Enter a valid number!)");
+            System.out.println ("Por favor, digite um nº válido:");
+            System.out.println ("(Please, enter a valid number:)");
             System.out.println("\n1 – Português");
             System.out.println("2 – English");
             lingua = teclado.nextInt();
@@ -27,6 +27,7 @@ public class Application {
         
         switch (lingua) {
             case 1:
+                System.out.print('\u000C');
                 System.out.println("    _____");
                 System.out.println("   /    /|_ ___________________________________________");
                 System.out.println("  /    // /|                                          /|");
@@ -44,6 +45,7 @@ public class Application {
                 
             break;
             case 2:
+                System.out.print('\u000C');
                 System.out.println("    _____");
                 System.out.println("   /    /|_ ___________________________________________");
                 System.out.println("  /    // /|                                          /|");
@@ -200,9 +202,9 @@ public class Application {
                 } else {
                     leitores.buscaLeitorPeloNome(nome).setLivroRetirado(livros.buscaLivroPeloNome(nomeLivro));
                     if (livros.buscaLivroPeloNome(nomeLivro).retirada()) {
-                        System.out.println ("The book was successfully loaned!");
+                        System.out.println ("O livro foi retirado com sucesso!");
                     } else {
-                        System.out.println ("The book doesn't have copies available.");
+                        System.out.println ("Não foi possível retirar o livro!" + "\nO livro não possui cópias disponíveis.");
                     }
                 }
                     esperarEnter(teclado);
@@ -250,6 +252,8 @@ public class Application {
         }
     }
     
+    
+    // ingles
     public static void options (Scanner teclado, CadastroLivro livros, CadastroLeitor leitores) {
     Random matricula = new Random();
     while (true){
@@ -356,7 +360,7 @@ public class Application {
                 System.out.print('\u000C');
                 System.out.println("SELECTED OPTION – Show books");
                 
-                System.out.println("\n • Book shelf • ");
+                System.out.println("\n • Bookshelf • ");
                 livros.showBooks();
                 waitForEnter(teclado);
                 break;
@@ -383,7 +387,7 @@ public class Application {
                 System.out.println("Enter the name of the book the reader wants to borrow: ");
                 nomeLivro = teclado.nextLine();
                 if (leitores.buscaLeitorPeloNome(nome).getLivroRetirado() != null) {
-                    System.out.println("The reader already has a book on loan.\nIf they want to borrow another book, they must return the current one first.");
+                    System.out.println("The reader already has already borrowed a book.\nIf they want to borrow another book, they must return the current one first.");
                 } else {
                     leitores.buscaLeitorPeloNome(nome).setLivroRetirado(livros.buscaLivroPeloNome(nomeLivro));
                     if (livros.buscaLivroPeloNome(nomeLivro).retirada()) {
@@ -437,7 +441,7 @@ public class Application {
     }
 }
 
-
+    // portugues
     private static void exibirMenu() {
         System.out.println("\n-----------------------------------------");
         System.out.println("Digite o nº da opção que deseja executar:");
@@ -459,6 +463,7 @@ public class Application {
         System.out.println("\n20 – Sair do programa");
     }
     
+    // ingles
     private static void showMenu() {
         System.out.println("\n-----------------------------------------");
         System.out.println("Enter the number of the option you want to execute:");
