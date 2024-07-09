@@ -12,6 +12,8 @@ VERSÃO ou DATA: 06/07/2024
 
 COMO INICIAR O PROJETO: Apenas compilar e rodar em algum terminal que suporte Java.
 
+LINK PARA O PITCH: https://youtu.be/vWrvECZMI6k
+
 AUTORES:  
 Matheus Machado - Matrícula: 24106804  
 Gustavo Fagundes Flores - Matrícula: 24106519  
